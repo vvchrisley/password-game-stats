@@ -1,2 +1,2 @@
 # password-game-stats
-analyzing fake password requirements an unneccessary amount
+[The Password Game](https://neal.fun/password-game/) is a game by Neal Agarwal.
