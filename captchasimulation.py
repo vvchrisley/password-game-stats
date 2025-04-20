@@ -2,15 +2,6 @@ import random
 import numpy as np
 import matplotlib.pyplot as plt
 
-#total = 16777216
-#zero = 117649
-#one = zero + 100842
-#two = one + 136857
-#three = two + 179732
-#four = three + 230202
-#five = four + 289044
-#six = five + 357078
-
 # plot labels
 plt.title("Refreshes until CAPTCHA with no digits")
 plt.xlabel("Number of refreshes")
