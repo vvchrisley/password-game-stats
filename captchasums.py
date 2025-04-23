@@ -3,13 +3,15 @@ import re
 # track how many captchas have what sums
 sum_counts = [0] * 26
 
-# capture from captchas file (one line of alphanum strings enclosed in quotes)
-captcha_list = open("captchas", "r").readline()
-pattern = re.compile(r"\"([a-z0-9]+)\"")
+# get captchas from file
+captcha_list = open('captchas', 'r').read().split(',')
+# remove quotation marks
+captcha_list = [captcha.strip('"') for captcha in captcha_list]
 
-# for each captcha, sum the digits in it
-for match in re.finditer(pattern, captcha_list):
-    sum_of_digits = sum(int(char) for char in match.group(1) if char.isdigit())
+for captcha in captcha_list:
+    # sum digits from captcha
+    digits = re.findall(r'\d', captcha)
+    sum_of_digits = sum(int(digit) for digit in digits)
     # increment the appropriate sum count
     if sum_of_digits < 25:
         sum_counts[sum_of_digits] += 1
