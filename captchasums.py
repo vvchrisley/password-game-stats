@@ -4,7 +4,7 @@ import re
 sum_counts = [0] * 26
 
 # get captchas from file
-captcha_list = open('captchas', 'r').read().split(',')
+captcha_list = open('input/captchas', 'r').read().split(',')
 # remove quotation marks
 captcha_list = [captcha.strip('"') for captcha in captcha_list]
 
