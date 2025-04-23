@@ -2,33 +2,34 @@ import random
 import numpy as np
 import matplotlib.pyplot as plt
 
-# plot labels
+# set plot labels
 plt.title("Refreshes until CAPTCHA with no digits")
 plt.xlabel("Number of refreshes")
 plt.ylabel("Frequency")
 
-# probability of getting desired result
+# probability of getting desired result on one attempt
 chance_of_result = 12/149
 # estimated time it takes to try for the result in real life
 seconds_per_attempt = 1
 # number of times to run the simulation
 num_trials = 10000
-# will hold how many attempts it took in each trial
-attempts_per_trial = []
 
-# simulate trying for the desired result until you get it
-for trial in range(num_trials):
+def run_trial():
+  """Simulate trying for the desired result until you get it.
+  Return how many attempts it took."""
   attempts = 0
-  result = random.random() 
+  result = random.random()
   while (not result < chance_of_result):
     result = random.random() 
     attempts += 1
-  # log how many attempts it took
-  attempts_per_trial.append(attempts)
+  return attempts
+
+# run simulation the specified number of times
+attempts_per_trial = [run_trial() for trial in range(num_trials)]
 
 # print average number of attempts until desired result
 avg_attempts = np.mean(attempts_per_trial)
-print(avg_attempts, "attempts")
+print("Average # of attempts:", avg_attempts)
 
 # print estimated time until desired result
 time = avg_attempts * seconds_per_attempt
