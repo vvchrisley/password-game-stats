@@ -2,7 +2,7 @@ import re
 import pandas as pd
 
 # get captchas from file
-captcha_list = open('captcha_stuff/captchas', 'r').read().split(',')
+captcha_list = open('input/captchas', 'r').read().split(',')
 
 def sum_of_digits(string):
     """Return the sum of all digits in a string. 
@@ -13,8 +13,9 @@ def sum_of_digits(string):
     return sum(int(digit) for digit in digits)
 
 # get the sum of digits in each captcha
-sums = [sum_of_digits(captcha) for captcha in captcha_list]
+sums = pd.Series([sum_of_digits(captcha) for captcha in captcha_list])
 
 # print results
-print("# of CAPTCHAs:", len(captcha_list))
-print(pd.value_counts(sums).sort_index())
+print("Total CAPTCHAs:", len(captcha_list), "\n")
+print("sum  # of CAPTCHAs")
+print(sums.value_counts().sort_index())
