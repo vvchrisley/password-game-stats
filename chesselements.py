@@ -47,7 +47,7 @@ index=moves)
 
 # print results
 print("Total moves:", len(moves))
-print("Moves ending in check:", len([move for move in moves if '+' in move]))
+print("Moves ending in check:", sum(['+' in move for move in moves]))
 print("Moves containing an element:", sum([bool(ele) for ele in move_data['Element']]), "\n")
 print(move_data.value_counts())
 
