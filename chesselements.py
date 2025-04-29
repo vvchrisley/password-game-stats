@@ -14,7 +14,7 @@ moves = [re.search(move_pattern, line).group() for line in chess if 'sol:' in li
 chess.close()
 
 # get info from elements file
-elements = pd.read_csv('elements.csv').set_index('Symbol')
+elements = pd.read_csv('input/elements.csv').set_index('Symbol')
 
 # get elements that could show up in chess moves
 element_pattern = re.compile(r'^[RNBKQ][a-hx]?$')
