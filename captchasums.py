@@ -1,4 +1,3 @@
-import re
 import pandas as pd
 
 # get captchas from file
@@ -9,8 +8,7 @@ def sum_of_digits(string):
     >>> sum_of_digits("2b827")
     19
     """
-    digits = re.findall(r'\d', string)
-    return sum(int(digit) for digit in digits)
+    return sum(int(char) for char in string if char.isdigit())
 
 # get the sum of digits in each captcha
 sums = pd.Series([sum_of_digits(captcha) for captcha in captcha_list])
