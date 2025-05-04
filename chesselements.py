@@ -1,6 +1,5 @@
 import re
 import pandas as pd
-import matplotlib.pyplot as plt
 from captchasums import plot_frequency
 
 def first_matching_term(string, terms):
