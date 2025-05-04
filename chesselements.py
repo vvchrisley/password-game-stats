@@ -42,13 +42,12 @@ def main():
     print("Moves containing an element:", move_data['Element'].astype(bool).sum(), "\n")
     print(move_data.value_counts(sort=False))
 
-    """
     # plot results
     plt.title("Frequency of elements in chess moves")
     plt.xlabel("Atomic number")
     plt.ylabel("Frequency")
     plt.hist(move_data['Atomic Number'], bins=range(118))
-    plt.show()"""
+    plt.show()
 
 if __name__ == '__main__':
     main()
