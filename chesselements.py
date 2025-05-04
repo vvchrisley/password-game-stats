@@ -1,6 +1,7 @@
 import re
 import pandas as pd
 import matplotlib.pyplot as plt
+from captchasums import plot_frequency
 
 def first_matching_term(string, terms):
     """Return the first list item appearing in the string, or None if none.
@@ -43,11 +44,7 @@ def main():
     print(move_data.value_counts(sort=False))
 
     # plot results
-    plt.title("Frequency of elements in chess moves")
-    plt.xlabel("Atomic number")
-    plt.ylabel("Frequency")
-    plt.hist(move_data['Atomic Number'], bins=range(118))
-    plt.show()
+    plot_frequency(move_data['Atomic Number'], 'Atomic number', 'Elements in chess moves')
 
 if __name__ == '__main__':
     main()
